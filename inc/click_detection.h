@@ -35,11 +35,38 @@ typedef struct{
  * @return ClickData 
  */
 ClickData initClickDetection(void);
-
+/**
+ * @brief Function used to reset the time_pressed for the HIGH state of the gpio pin
+ * 
+ * @param click_data 
+ */
 void risingEdge(ClickData *click_data);
+/**
+ * @brief Function used to reset the time_relased for the LOW state of the gpio pin
+ * 
+ * @param click_data 
+ */
 void fallingEdge(ClickData *click_data);
+/**
+ * @brief Function used to increment the time pressed, aka the time the gpio pin is in the HIGH state
+ * 
+ * @param click_data 
+ */
 void incrementPressedTime(ClickData *click_data);
+/**
+ * @brief Function used to increment the time relased, aka the time the gpio pin is in LOW state
+ * 
+ * @param click_data 
+ */
 void incrementReleasedTime(ClickData *click_data);
+/**
+ * @brief Function used to procceses the current pin state and the previous informations and
+ * change the informations of the click_data and return the detected click state
+ * 
+ * @param click_data 
+ * @param curr_pin_state current state of the pin, bool
+ * @return ClickTypes 
+ */
 ClickTypes proccesClickData(ClickData *click_data, bool curr_pin_state);
 
 
