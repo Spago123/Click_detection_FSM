@@ -48,7 +48,7 @@ ClickTypes proccesClickData(ClickData *click_data, bool curr_pin_state){
             } else if(checkLongClickConditions(click_data->time_pressed) && !curr_pin_state){ // LONG CLICK DETECTED
                 *click_data = initClickDetection();
                 return LONG_CLICK;
-            } else if(click_data->time_pressed > UPPER_NOISE){ // CONSIDER NOISE
+            } else if(click_data->time_pressed > UPPER_NOISE && !curr_pin_state){ // CONSIDER NOISE
                 *click_data = initClickDetection();
                 return INITIAL;
             }
